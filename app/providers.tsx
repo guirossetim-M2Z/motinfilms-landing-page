@@ -1,5 +1,6 @@
 'use client';
 
+import { RDPopupConversionListener } from '@/components/integrations/RDPopupConversionListener';
 import { TrackingProvider } from 'ninetwo-user-tracking';
 import { ReactNode } from 'react';
 
@@ -14,6 +15,7 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <TrackingProvider gtmId="G-XE9HVWPVF1" debug>
       {children}
+      <RDPopupConversionListener />
     </TrackingProvider>
   );
 }

@@ -100,7 +100,7 @@ export function Features() {
       {/* 2. Texturas e Luzes */}
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 mix-blend-overlay z-10"></div>
       <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.9)] z-10"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+      {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div> */}
 
       {/* Container Padronizado max-w-7xl para simetria com Gallery */}
       <div className="container mx-auto max-w-7xl relative z-20 px-4 md:px-6">
@@ -164,7 +164,7 @@ export function Features() {
                     COMO A MOTIN
                 </span>
                 <span className="block md:inline md:ml-4 text-2xl md:text-5xl lg:text-6xl">
-                    <CinematicText text="TRANSFORMA O CAOS." speed="fast" />
+                    <CinematicText text="TRANSFORMA O CAOS" speed="fast" />
                 </span>
              </span>
         </div>

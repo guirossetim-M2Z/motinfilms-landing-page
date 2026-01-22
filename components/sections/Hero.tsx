@@ -55,7 +55,7 @@ export function Hero() {
         <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam, emocionam e geram resultados." className="mx-auto" />
         <motion.h1 className="text-6xl md:text-8xl font-extrabold text-text leading-tight drop-shadow-lg" >
           Motive sua audiência.
-          <br /> Eleve sua <CinematicText text=" marca " speed="slow" />
+          <br /> Eleve sua <CinematicText text="marca " speed="fast" />
         </motion.h1>
         <motion.p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" >
           Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
