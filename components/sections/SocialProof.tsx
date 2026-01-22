@@ -2,97 +2,133 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import KineticText from '../ui/KineticText';
 import CinematicText from '../ui/CinematicText';
 
+// Lista completa baseada nos arquivos que você forneceu
+const partners = [
+  { name: 'Electrolux', src: '/images/logos_marcas/electrolux-logo.png' },
+  { name: 'Warner Bros', src: '/images/logos_marcas/wb-logo.png' },
+  { name: 'Sony', src: '/images/logos_marcas/sony-logo.png' },
+  { name: 'Paris Filmes', src: '/images/logos_marcas/paris-filmes-logo.png' },
+  { name: 'Itaipu', src: '/images/logos_marcas/itaipu-logo.png' },
+  { name: 'Unimed', src: '/images/logos_marcas/unimed-logo.png' },
+  { name: 'Santos FC', src: '/images/logos_marcas/santos-logo.png' },
+  { name: 'Lumicenter', src: '/images/logos_marcas/lumicenter-logo.png' },
+  { name: 'Dental Uni', src: '/images/logos_marcas/dentaluni-logo.png' },
+  // { name: 'Escolar Office', src: '/images/logos_marcas/escolar-office-brasil.jpeg' },
+  { name: 'Favretto', src: '/images/logos_marcas/favretto-logo.png' },
+  { name: 'Compwire', src: '/images/logos_marcas/compwire-logo.png' },
+  { name: 'Action Coach', src: '/images/logos_marcas/actioncoach-logo.png' },
+  { name: 'Naport', src: '/images/logos_marcas/naport-logo.png' },
+  { name: 'Blue Prism', src: '/images/logos_marcas/ssc-blueprism-logo.png' },
+];
+
+// Dividimos em duas linhas para o efeito de "End Credits"
+const row1 = partners.slice(0, 8);
+const row2 = partners.slice(8);
+
 export function SocialProof() {
-  const clientLogos = [
-    { name: 'Mercedes-Benz', image: 'https://cdn.iconscout.com/icon/free/png-256/mercedes-benz-202879.png' },
-    { name: 'AWA Comercial', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/AWA_Network_Logo.svg/1200px-AWA_Network_Logo.svg.png' }, // More appropriate placeholder
-    { name: 'Ecoparque', image: 'https://cdn-icons-png.flaticon.com/512/3233/3233519.png' }, // Generic eco logo
-    { name: 'Coca-Cola', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1024px-Coca-Cola_logo.svg.png' },
-    { name: 'Google', image: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' },
-    { name: 'Microsoft', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1200px-Microsoft_logo_%282012%29.svg.png' },
-  ];
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        when: 'beforeChildren',
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
-  };
-
   return (
-    <motion.section
-      className="py-20 px-4 bg-primary text-text"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={sectionVariants}
-    >
-      <div className="container mx-auto max-w-6xl text-center">
-        <motion.h2 className="text-4xl md:text-5xl font-bold mb-12" >
-          Marcas que confiam em nosso olhar.
-        </motion.h2>
+    <section className="relative py-24 bg-[#050505] text-white overflow-hidden border-t border-white/5">
+      
+      {/* Background Noise & Vignette */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] pointer-events-none z-10"></div>
 
+      <div className="container mx-auto max-w-6xl text-center relative z-20 mb-16">
         <motion.div
-          className="relative w-full overflow-hidden mb-12"
-          
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
         >
-          {/* Logo Carousel - Infinite scroll effect */}
-          <div className="flex animate-scroll-logos py-4">
-            {/* Duplicate clientLogos for a seamless infinite scroll effect */}
-            {[...clientLogos, ...clientLogos].map((logo, index) => (
-              <div key={index} className="flex-shrink-0 w-40 h-20 mx-8 flex items-center justify-center">
-                <img
-                  src={logo.image}
-                  alt={logo.name}
-                  className="max-h-full max-w-full object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Global style for the scrolling animation */}
-        <style jsx global>{`
-          @keyframes scrollLogos {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-50%); /* Scrolls half the width of the duplicated logos */
-            }
-          }
-          .animate-scroll-logos {
-            animation: scrollLogos 30s linear infinite; /* Adjust duration for desired speed */
-            width: fit-content; /* Allows content to be wider than its container */
-            display: flex; /* Ensures items are in a row */
-          }
-        `}</style>
-
-        <motion.div >
-          <Button
-            size="lg"
-            data-nt-ut-event='click'
-            data-nt-ut-category='Social Proof Section'
-            data-nt-ut-label='Quero Fazer Parte da Elite'
-          >
-            QUERO FAZER PARTE DA ELITE
-          </Button>
+            <p className="font-mono text-xs text-gray-500 uppercase tracking-[0.4em] mb-4">
+                Créditos de Produção
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold">
+              GRANDES HISTÓRIAS, <br />
+              PARCEIROS LENDÁRIOS
+            </h2>
         </motion.div>
       </div>
-    </motion.section>
+
+      {/* --- LOGO SCROLL AREA --- */}
+      <div className="relative w-full flex flex-col gap-12 mb-20">
+        
+        {/* Máscaras laterais para suavizar a entrada/saída (Fade) */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-60 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-60 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
+
+        {/* Linha 1: Move para a Esquerda */}
+        <div className="flex animate-scroll-left w-max hover:[animation-play-state:paused]">
+          {[...row1, ...row1, ...row1].map((partner, index) => (
+             <LogoItem key={`r1-${index}`} partner={partner} />
+          ))}
+        </div>
+
+        {/* Linha 2: Move para a Direita */}
+        <div className="flex animate-scroll-right w-max hover:[animation-play-state:paused]">
+          {[...row2, ...row2, ...row2].map((partner, index) => (
+             <LogoItem key={`r2-${index}`} partner={partner} />
+          ))}
+        </div>
+      </div>
+
+      <motion.div 
+        className="text-center relative z-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <Button
+          size="lg"
+          variant="ghost"
+          data-nt-ut-event='click'
+          data-nt-ut-category='Social Proof Section'
+          data-nt-ut-label='Quero Fazer Parte da Elite'
+          className="text-gray-400 hover:text-white hover:bg-white/5 border border-white/10 font-mono tracking-widest uppercase text-xs px-8 py-6"
+        >
+          QUERO FAZER PARTE DA ELITE
+        </Button>
+      </motion.div>
+
+      {/* CSS para Animações Infinitas */}
+      <style jsx global>{`
+        @keyframes scrollLeft {
+          from { transform: translateX(0); }
+          to { transform: translateX(-33.33%); }
+        }
+        @keyframes scrollRight {
+          from { transform: translateX(-33.33%); }
+          to { transform: translateX(0); }
+        }
+        .animate-scroll-left {
+          animation: scrollLeft 40s linear infinite;
+        }
+        .animate-scroll-right {
+          animation: scrollRight 40s linear infinite;
+        }
+      `}</style>
+    </section>
   );
 }
+
+// Componente auxiliar para renderizar cada logo
+const LogoItem = ({ partner }: { partner: { name: string; src: string } }) => (
+  <div className="flex-shrink-0 w-[200px] h-24 mx-4 flex items-center justify-center group relative">
+    {/* Efeito Glow atrás da logo no hover */}
+    <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    
+    <img
+      src={partner.src}
+      alt={partner.name}
+      loading="lazy"
+      // A mágica acontece aqui:
+      // brightness-0 invert -> Transforma qualquer logo colorida em BRANCA SÓLIDA
+      // opacity-30 -> Deixa ela escura (cinza) no estado normal
+      // hover -> Restaura a cor original e opacidade total
+      className="max-h-12 w-auto object-contain transition-all duration-500 
+                 filter brightness-0 invert opacity-30 
+                 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
+    />
+  </div>
+);
