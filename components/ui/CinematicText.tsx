@@ -6,14 +6,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 // Cada objeto tem as classes Tailwind e um ID para controle.
 const CINEMATIC_MOODS = [
   {
-    id: 'raw_script',
-    // Estilo: Roteiro técnico, cru, monocromático.
-    classes: "font-mono font-medium tracking-tighter uppercase text-gray-400/80",
-  },
-  {
     id: 'final_cut',
     // Estilo: Título de cinema finalizado, branco puro, alto contraste e brilho.
     classes: "font-sans font-black tracking-wide uppercase text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]",
+  },
+  {
+    id: 'raw_script',
+    // Estilo: Roteiro técnico, cru, monocromático.
+    classes: "font-mono font-medium tracking-tighter uppercase text-gray-400/80",
   },
   {
     id: 'vfx_layer',
