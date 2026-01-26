@@ -19,8 +19,8 @@ Built with **Next.js 14 (App Router)**, **TypeScript** & **Tailwind CSS**.
 ## 🛠️ Como Rodar Localmente
 
 1. **Instale as dependências:**
-   ```bash
-   npm install
+```bash
+npm install
 
 ```
 
