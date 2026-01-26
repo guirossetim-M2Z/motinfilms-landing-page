@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { ArrowLeft, ArrowRight, AlertCircle, Play, Sparkles, Zap, Aperture } from 'lucide-react';
 import { clsx } from 'clsx';
 import CinematicText from '../ui/CinematicText';
+import { triggerRdStationPopup } from '@/utils/RDStation';
 
 const ViewfinderCorners = () => (
   <>
@@ -147,6 +148,7 @@ export function Features() {
                         className="w-full border border-white/20 hover:bg-white text-white hover:text-black font-mono text-xs uppercase tracking-widest py-3"
                         data-nt-ut-event={point.event}
                         data-nt-ut-category={point.category}
+                        onClick={triggerRdStationPopup}
                     >
                         {point.cta}
                     </Button>

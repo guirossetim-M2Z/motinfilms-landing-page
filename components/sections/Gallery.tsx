@@ -97,14 +97,14 @@ export function Gallery() {
       {/* --- BACKGROUND DECORATIVO --- */}
       {/* Faixas Laterais: HIDDEN no Mobile, FLEX no Desktop (md) */}
       <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-r border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+        {[...Array(30)].map((_, i) => (
+          <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
+        ))}
       </div>
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-l border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+        {[...Array(30)].map((_, i) => (
+          <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
+        ))}
       </div>
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/5 via-transparent to-transparent blur-3xl pointer-events-none"></div>
@@ -118,7 +118,7 @@ export function Gallery() {
             <div className="h-[1px] w-4 md:w-8 bg-accent"></div>
             <Film className="w-3 h-3 md:w-4 md:h-4 text-accent" />
             <span className="font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.4em] uppercase text-gray-400">
-                Arquivo 2024
+              Arquivo 2024
             </span>
             <div className="h-[1px] w-4 md:w-8 bg-accent"></div>
           </div>
@@ -177,7 +177,7 @@ export function Gallery() {
                     </div>
                   </div>
                   <div className="flex justify-between items-end">
-                     <Maximize2 className="w-4 h-4 text-white/70" />
+                    <Maximize2 className="w-4 h-4 text-white/70" />
                   </div>
                 </div>
               </div>
@@ -191,16 +191,16 @@ export function Gallery() {
                     </span>
                     <span className="text-[9px] text-gray-600 font-mono tracking-widest">0{index + 1}</span>
                   </div>
-                  
+
                   <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors font-sans uppercase tracking-tight pt-1">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-xs text-gray-400 font-mono font-light opacity-80 md:opacity-60 group-hover:opacity-100 transition-opacity max-w-xs leading-relaxed line-clamp-2">
                     // {project.subtitle}
                   </p>
                 </div>
-                
+
                 {/* Ícone Play Visível no Mobile para indicar clique */}
                 <div className="pt-2 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-300">
                   <Clapperboard className="w-5 h-5 text-gray-500 group-hover:text-accent" />
@@ -215,6 +215,9 @@ export function Gallery() {
           <Button
             size="lg"
             variant="ghost"
+            data-nt-ut-event='click'
+            data-nt-ut-category='Gallery Section'
+            data-nt-ut-label='Abrir Catálogo de clientes site institucional'
             className="border border-white/20 text-white hover:bg-white hover:text-black font-mono text-xs uppercase tracking-widest px-8 md:px-10 py-4 md:py-6 w-full md:w-auto"
             href='https://motinfilms.com.br/portfolio'
           >
@@ -273,14 +276,14 @@ export function Gallery() {
                         {selectedProject.techSpecs}
                       </span>
                     </div>
-                    
+
                     <div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 uppercase tracking-tight">
-                            {selectedProject.title}
-                        </h3>
-                        <p className="text-sm md:text-base text-gray-400 font-light leading-relaxed">
-                            {selectedProject.description}
-                        </p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 uppercase tracking-tight">
+                        {selectedProject.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-400 font-light leading-relaxed">
+                        {selectedProject.description}
+                      </p>
                     </div>
                   </div>
                 </div>

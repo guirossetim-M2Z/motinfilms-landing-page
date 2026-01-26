@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import CinematicText from '../ui/CinematicText';
 import Image from 'next/image';
+import { triggerRdStationPopup } from '@/utils/RDStation';
 
 export function Hero() {
   const imageUrl = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1920&h=1080&fit=crop";
@@ -60,12 +61,13 @@ export function Hero() {
         <motion.p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" >
           Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
         </motion.p>
-        <motion.div >
+        <motion.div>
           <Button
             size="lg"
             data-nt-ut-event='click'
             data-nt-ut-category='Hero Section'
             data-nt-ut-label='Quero Elevar o Nivel'
+            onClick={triggerRdStationPopup}
           >
             QUERO ELEVAR O NÍVEL
           </Button>

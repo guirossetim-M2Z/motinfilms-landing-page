@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import CinematicText from '../ui/CinematicText';
+import { triggerRdStationPopup } from '@/utils/RDStation';
 
 // Lista completa baseada nos arquivos que você forneceu
 const partners = [
@@ -86,6 +87,7 @@ export function SocialProof() {
           data-nt-ut-category='Social Proof Section'
           data-nt-ut-label='Quero Fazer Parte da Elite'
           className="text-gray-400 hover:text-white hover:bg-white/5 border border-white/10 font-mono tracking-widest uppercase text-xs px-8 py-6"
+          onClick={triggerRdStationPopup}
         >
           QUERO FAZER PARTE DA ELITE
         </Button>
