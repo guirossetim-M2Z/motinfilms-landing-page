@@ -26,53 +26,62 @@ export function Hero() {
     show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
   };
 
+
   return (
-    <motion.section
-      className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden bg-primary"
-      initial="hidden"
-      animate="show"
-      variants={containerVariants}
-    >
-      {/* VIDEO BACKGROUND */}
-      <div className="absolute inset-0 overflow-hidden">
-        <video
-          className="w-full h-full object-cover opacity-30 pointer-events-none"
-          preload="auto"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        >
-          <source src={videoUrl} type="video/mp4" />
-          {/* Fallback para navegadores que não suportam video */}
-        </video>
 
-        {/* Opcional: overlay sutil para melhorar contraste do texto */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto space-y-8">
-        <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam, emocionam e geram resultados." className="mx-auto" />
-        <motion.h1 className="text-6xl md:text-8xl font-extrabold text-text leading-tight drop-shadow-lg" >
-          Motive sua audiência.
-          <br /> Eleve sua <CinematicText text="marca " speed="fast" />
-        </motion.h1>
-        <motion.p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" >
-          Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
-        </motion.p>
-        <motion.div>
-          <Button
-            size="lg"
-            data-nt-ut-event='click'
-            data-nt-ut-category='Hero Section'
-            data-nt-ut-label='Quero Elevar o Nivel'
-            onClick={triggerRdStationPopup}
+    <>
+      <style>{`
+    .stronger-title{
+      line-height: 90px;
+    }
+  `}</style>
+      <motion.section
+        className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden bg-primary"
+        initial="hidden"
+        animate="show"
+        variants={containerVariants}
+      >
+        {/* VIDEO BACKGROUND */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            className="w-full h-full object-cover opacity-30 pointer-events-none"
+            preload="auto"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
           >
-            QUERO ELEVAR O NÍVEL
-          </Button>
-        </motion.div>
-      </div>
-    </motion.section>
+            <source src={videoUrl} type="video/mp4" />
+            {/* Fallback para navegadores que não suportam video */}
+          </video>
+
+          {/* Opcional: overlay sutil para melhorar contraste do texto */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+          <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam, emocionam e geram resultados." className="mx-auto" />
+          <motion.h1 className="text-6xl md:text-8xl font-extrabold text-text leading-tight drop-shadow-lg stronger-title">
+            Motive sua audiência.
+            <br /> Eleve sua <CinematicText text="marca " speed="fast" />
+          </motion.h1>
+          <motion.p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" >
+            Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
+          </motion.p>
+          <motion.div>
+            <Button
+              size="lg"
+              data-nt-ut-event='click'
+              data-nt-ut-category='Hero Section'
+              data-nt-ut-label='Quero Elevar o Nivel'
+              onClick={triggerRdStationPopup}
+            >
+              QUERO ELEVAR O NÍVEL
+            </Button>
+          </motion.div>
+        </div>
+      </motion.section>
+    </>
   );
 }
