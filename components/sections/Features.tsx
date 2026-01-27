@@ -85,26 +85,17 @@ export function Features() {
     <section className="relative min-h-screen flex flex-col justify-center py-16 md:py-24 bg-[#050505] text-gray-100 overflow-hidden">
       
       {/* --- CINEMATIC BACKGROUND LAYERS --- */}
-      
-      {/* 1. Faixas Laterais (35mm) - ADICIONADO AQUI */}
       <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-r border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-l border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
-
-      {/* 2. Texturas e Luzes */}
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 mix-blend-overlay z-10"></div>
       <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.9)] z-10"></div>
-      {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div> */}
 
-      {/* Container Padronizado max-w-7xl para simetria com Gallery */}
-      <div className="container mx-auto max-w-7xl relative z-20 px-4 md:px-6">
+      {/* CONTAINER PADRONIZADO (max-w-7xl px-4 md:px-8) */}
+      <div className="container mx-auto max-w-7xl relative z-20 px-4 md:px-8">
         
         {/* --- HEADER: PAIN POINTS --- */}
         <div className="mb-20 md:mb-32">
@@ -124,8 +115,6 @@ export function Features() {
                   className="group relative bg-white/5 border border-white/10 p-6 md:p-8 backdrop-blur-sm hover:bg-white/10 transition-colors duration-500 flex flex-col h-full"
                 >
                   <ViewfinderCorners />
-                  
-                  {/* Header do Card */}
                   <div className="flex justify-between items-start mb-6">
                       <div className="p-3 bg-black/40 border border-white/10 rounded-full shrink-0">
                           {point.icon}
@@ -134,14 +123,12 @@ export function Features() {
                           LOG_0{idx + 1}
                       </span>
                   </div>
-
                   <h3 className="font-mono text-lg md:text-xl text-white mb-3 tracking-tight group-hover:text-red-400 transition-colors break-words">
                       {point.title}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-8 border-l-2 border-gray-700 pl-4 flex-grow">
                       {point.description}
                   </p>
-
                   <div className="mt-auto">
                     <Button
                         variant="ghost"
@@ -173,8 +160,6 @@ export function Features() {
 
         {/* --- SOLUTIONS CAROUSEL (MONITOR STYLE) --- */}
         <div className="relative">
-          
-          {/* UI do Monitor de Câmera (Labels) */}
           <div className="absolute -top-8 md:-top-6 left-0 flex gap-3 md:gap-4 px-2">
             <div className="flex items-center gap-2">
                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
@@ -184,10 +169,7 @@ export function Features() {
             <span className="font-mono text-[9px] md:text-[10px] text-gray-500">4K RAW</span>
           </div>
 
-          {/* O Monitor (Container Principal) */}
           <div className="border-y border-white/20 bg-black/40 backdrop-blur-md relative overflow-hidden min-h-[400px] md:h-[450px] flex items-center justify-center">
-             
-             {/* Crosshair Center (Background) */}
              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
                 <div className="w-[1px] h-full bg-white"></div>
                 <div className="h-[1px] w-full bg-white absolute"></div>
@@ -210,39 +192,26 @@ export function Features() {
                 <div className="inline-flex items-center justify-center p-4 rounded-full border border-white/10 bg-white/5 mb-6 backdrop-blur-xl ring-1 ring-white/20 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                   {solutions[currentSolutionIndex].icon}
                 </div>
-                
                 <p className="font-mono text-[10px] md:text-xs text-blue-400 mb-3 tracking-[0.2em] uppercase">
                     {solutions[currentSolutionIndex].subtitle}
                 </p>
-                
                 <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6 tracking-wide">
                     {solutions[currentSolutionIndex].title}
                 </h3>
-                
                 <p className="text-sm md:text-lg text-gray-300 font-light leading-relaxed max-w-xl mx-auto">
                     {solutions[currentSolutionIndex].description}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Buttons (Áreas de Clique Laterais) */}
-            <button
-                onClick={handlePrev}
-                className="absolute left-0 top-0 bottom-0 w-12 md:w-20 flex items-center justify-center text-white/30 hover:text-white hover:bg-gradient-to-r hover:from-black/50 hover:to-transparent transition-all z-30 group"
-                aria-label="Previous solution"
-            >
+            <button onClick={handlePrev} className="absolute left-0 top-0 bottom-0 w-12 md:w-20 flex items-center justify-center text-white/30 hover:text-white hover:bg-gradient-to-r hover:from-black/50 hover:to-transparent transition-all z-30 group" aria-label="Previous">
                 <ArrowLeft className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
             </button>
-            <button
-                onClick={handleNext}
-                className="absolute right-0 top-0 bottom-0 w-12 md:w-20 flex items-center justify-center text-white/30 hover:text-white hover:bg-gradient-to-l hover:from-black/50 hover:to-transparent transition-all z-30 group"
-                aria-label="Next solution"
-            >
+            <button onClick={handleNext} className="absolute right-0 top-0 bottom-0 w-12 md:w-20 flex items-center justify-center text-white/30 hover:text-white hover:bg-gradient-to-l hover:from-black/50 hover:to-transparent transition-all z-30 group" aria-label="Next">
                 <ArrowRight className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
             </button>
           </div>
 
-          {/* Timeline / Pagination */}
           <div className="flex justify-center items-center gap-1 mt-6">
             {solutions.map((_, idx) => (
               <button
@@ -260,7 +229,6 @@ export function Features() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

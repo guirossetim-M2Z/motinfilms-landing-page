@@ -7,34 +7,28 @@ import Image from 'next/image';
 import { triggerRdStationPopup } from '@/utils/RDStation';
 
 export function Hero() {
-  const imageUrl = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1920&h=1080&fit=crop";
-  const videoUrl = "https://motinfilms.com.br/Showreel.mp4"; // <-- seu video
+  const videoUrl = "https://motinfilms.com.br/Showreel.mp4"; 
 
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 10 } },
-  };
-
-
   return (
-
     <>
       <style>{`
-    .stronger-title{
-      line-height: 90px;
-    }
-  `}</style>
+        .stronger-title {
+          line-height: 1.1;
+        }
+        @media (min-width: 768px) {
+           .stronger-title {
+              line-height: 90px;
+           }
+        }
+      `}</style>
       <motion.section
         className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden bg-primary"
         initial="hidden"
@@ -53,33 +47,33 @@ export function Hero() {
             aria-hidden="true"
           >
             <source src={videoUrl} type="video/mp4" />
-            {/* Fallback para navegadores que não suportam video */}
           </video>
-
-          {/* Opcional: overlay sutil para melhorar contraste do texto */}
           <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto space-y-8">
-          <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam, emocionam e geram resultados." className="mx-auto" />
-          <motion.h1 className="text-6xl md:text-8xl font-extrabold text-text leading-tight drop-shadow-lg stronger-title">
-            Motive sua audiência.
-            <br /> Eleve sua <CinematicText text="marca " speed="fast" />
-          </motion.h1>
-          <motion.p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" >
-            Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
-          </motion.p>
-          <motion.div>
-            <Button
-              size="lg"
-              data-nt-ut-event='click'
-              data-nt-ut-category='Hero Section'
-              data-nt-ut-label='Quero Elevar o Nivel'
-              onClick={triggerRdStationPopup}
-            >
-              QUERO ELEVAR O NÍVEL
-            </Button>
-          </motion.div>
+        {/* CONTAINER PADRONIZADO (max-w-4xl para texto centralizado, mas alinhado com o resto) */}
+        <div className="relative z-10 container mx-auto max-w-7xl px-4 md:px-8 flex flex-col items-center">
+            <div className="max-w-4xl space-y-8">
+              <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam" className="mx-auto w-32 md:w-52" />
+              <motion.h1 className="text-5xl md:text-8xl font-extrabold text-text drop-shadow-lg stronger-title">
+                Motive sua audiência.
+                <br /> Eleve sua <CinematicText text="marca " speed="fast" />
+              </motion.h1>
+              <motion.p className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto" >
+                Transformamos sua visão em impacto cinematográfico. Filmes que não apenas mostram, mas comunicam, emocionam e geram resultados reais para o seu negócio.
+              </motion.p>
+              <motion.div>
+                <Button
+                  size="lg"
+                  data-nt-ut-event='click'
+                  data-nt-ut-category='Hero Section'
+                  data-nt-ut-label='Quero Elevar o Nivel'
+                  onClick={triggerRdStationPopup}
+                >
+                  QUERO ELEVAR O NÍVEL
+                </Button>
+              </motion.div>
+            </div>
         </div>
       </motion.section>
     </>

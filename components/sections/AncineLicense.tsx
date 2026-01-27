@@ -5,28 +5,23 @@ import { ShieldCheck } from 'lucide-react';
 
 export function AncineLicense() {
   return (
-    <section className="relative h-[200px] md:h-[240px] flex items-center justify-center overflow-hidden border-y border-white/10 group">
+    <section className="relative h-[200px] md:h-[240px] flex items-center justify-center overflow-hidden border-y border-white/10 group bg-[#050505]">
       
-      {/* --- BACKGROUND IMERSIVO (Parallax & Image) --- */}
+      {/* --- BACKGROUND --- */}
       <div className="absolute inset-0 z-0">
-        {/* Imagem de Fundo (Lente de Cinema / Set) */}
         <motion.img 
             initial={{ scale: 1.1 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 10, ease: "linear" }}
             src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2942&auto=format&fit=crop" 
             alt="Cinema Background"
-            className="w-full h-full object-cover opacity-40 filter grayscale contrast-125"
+            className="w-full h-full object-cover opacity-30 filter grayscale contrast-125"
         />
-        
-        {/* Overlay Gradiente para leitura */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
-        
-        {/* Efeito de "Red Flare" (Luz de Cinema) vindo da lateral */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/20 to-transparent mix-blend-screen pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent mix-blend-screen pointer-events-none"></div>
       </div>
 
-      {/* --- EFEITO DE "SCANNER" (Atenção Visual) --- */}
+      {/* --- SCANNER EFFECT --- */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
          <motion.div 
             animate={{ top: ['-10%', '110%'] }}
@@ -35,12 +30,11 @@ export function AncineLicense() {
          />
       </div>
 
-      {/* --- CONTEÚDO --- */}
-      <div className="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-12">
+      {/* --- CONTEÚDO PADRONIZADO (max-w-7xl) --- */}
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 md:px-8 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-12">
         
-        {/* Texto: Produtora Licenciada */}
+        {/* Lado Esquerdo */}
         <div className="flex items-center gap-4">
-            {/* Ícone de Escudo (Autoridade) */}
             <motion.div 
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -60,31 +54,22 @@ export function AncineLicense() {
             </div>
         </div>
 
-        {/* Divisor Vertical (Apenas Desktop) */}
+        {/* Divisor */}
         <div className="hidden md:block w-[1px] h-12 bg-white/10"></div>
 
-        {/* Logo da ANCINE */}
+        {/* Lado Direito */}
         <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative p-4 rounded-lg"
         >
-            {/* SUBSTITUA O SRC ABAIXO PELA SUA LOGO DA ANCINE REAL.
-               Usei um placeholder visual, mas apliquei filtros CSS para garantir
-               que a logo fique BRANCA (invert) para dar contraste no fundo escuro.
-            */}
+            <div className="absolute inset-0 bg-white/5 blur-xl rounded-full pointer-events-none"></div>
             <img 
                 src="/images/ancine-logo-1.png" 
                 alt="Logo Ancine" 
                 className="h-14 md:h-20 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
             />
-            
-            {/* Caso não tenha a imagem ainda, este texto serve de placeholder estilizado: */}
-            {/* <div className="text-3xl font-black text-white tracking-tighter opacity-80 select-none">
-                ANCINE
-            </div> 
-            */}
         </motion.div>
 
       </div>

@@ -28,15 +28,12 @@ const row2 = partners.slice(8);
 export function SocialProof() {
   return (
     <section className="relative py-24 bg-[#050505] text-white overflow-hidden border-t border-white/5 shadow-2xl">
-      
-      {/* Background Noise & Vignette */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] pointer-events-none z-10"></div>
 
-      {/* --- HEADER ESTILIZADO (Igual OurNumbers) --- */}
-      <div className="container mx-auto max-w-6xl relative z-20 mb-16 md:mb-24">
+      {/* CONTAINER PADRONIZADO (max-w-7xl) */}
+      <div className="container mx-auto max-w-7xl px-4 md:px-8 relative z-20 mb-16 md:mb-24">
         <div className="flex flex-col items-center justify-center text-center">
-            {/* Label com Red Dot */}
             <div className="flex items-center gap-3 mb-4 opacity-60">
                 <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-gray-400">
@@ -44,34 +41,25 @@ export function SocialProof() {
                 </span>
             </div>
             
-            {/* Título Principal com CinematicText */}
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-4xl leading-tight">
                GRANDES HISTÓRIAS, <br className="md:hidden" />
                <span className="md:ml-3">
                   <CinematicText text="PARCEIROS LENDÁRIOS" className="text-white" />
                </span>
             </h2>
-
-            {/* Linha Divisória Gradiente */}
             <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-red-500 to-transparent mt-8 opacity-70"></div>
         </div>
       </div>
 
-      {/* --- LOGO SCROLL AREA --- */}
       <div className="relative w-full flex flex-col gap-12 mb-20">
-        
-        {/* Máscaras laterais para suavizar a entrada/saída (Fade) */}
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-60 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-60 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
 
-        {/* Linha 1: Move para a Esquerda */}
         <div className="flex animate-scroll-left w-max hover:[animation-play-state:paused]">
           {[...row1, ...row1, ...row1].map((partner, index) => (
              <LogoItem key={`r1-${index}`} partner={partner} />
           ))}
         </div>
-
-        {/* Linha 2: Move para a Direita */}
         <div className="flex animate-scroll-right w-max hover:[animation-play-state:paused]">
           {[...row2, ...row2, ...row2].map((partner, index) => (
              <LogoItem key={`r2-${index}`} partner={partner} />
@@ -79,12 +67,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <motion.div 
-        className="text-center relative z-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
+      <motion.div className="text-center relative z-20" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
         <Button
           size="lg"
           variant="ghost"
@@ -98,40 +81,24 @@ export function SocialProof() {
         </Button>
       </motion.div>
 
-      {/* CSS para Animações Infinitas */}
       <style jsx global>{`
-        @keyframes scrollLeft {
-          from { transform: translateX(0); }
-          to { transform: translateX(-33.33%); }
-        }
-        @keyframes scrollRight {
-          from { transform: translateX(-33.33%); }
-          to { transform: translateX(0); }
-        }
-        .animate-scroll-left {
-          animation: scrollLeft 40s linear infinite;
-        }
-        .animate-scroll-right {
-          animation: scrollRight 40s linear infinite;
-        }
+        @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+        @keyframes scrollRight { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
+        .animate-scroll-left { animation: scrollLeft 40s linear infinite; }
+        .animate-scroll-right { animation: scrollRight 40s linear infinite; }
       `}</style>
     </section>
   );
 }
 
-// Componente auxiliar para renderizar cada logo
 const LogoItem = ({ partner }: { partner: { name: string; src: string } }) => (
   <div className="flex-shrink-0 w-[200px] h-24 mx-4 flex items-center justify-center group relative">
-    {/* Efeito Glow atrás da logo no hover */}
     <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    
     <img
       src={partner.src}
       alt={partner.name}
       loading="lazy"
-      className="max-h-12 w-auto object-contain transition-all duration-500 
-                 filter brightness-0 invert opacity-30 
-                 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
+      className="max-h-12 w-auto object-contain transition-all duration-500 filter brightness-0 invert opacity-30 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
     />
   </div>
 );

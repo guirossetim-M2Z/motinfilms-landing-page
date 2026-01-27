@@ -27,32 +27,16 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
-
-      {/* =======================
-          RUNNING BORDERS FX
-         ======================= */}
-
-      {/* Borda Superior Animada */}
+      {/* Borders */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5">
-        <motion.div
-          animate={{ x: ['-100%', '100%'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="w-1/2 h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
-        />
+        <motion.div animate={{ x: ['-100%', '100%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="w-1/2 h-full bg-gradient-to-r from-transparent via-red-500 to-transparent" />
       </div>
-
-      {/* Borda Inferior Animada (Direção Oposta) */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/5">
-        <motion.div
-          animate={{ x: ['100%', '-100%'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="w-1/2 h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
-        />
+        <motion.div animate={{ x: ['100%', '-100%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="w-1/2 h-full bg-gradient-to-r from-transparent via-red-500 to-transparent" />
       </div>
 
-
-      {/* CONTEÚDO */}
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+      {/* CONTAINER PADRONIZADO (max-w-7xl) */}
+      <div className="container mx-auto max-w-7xl px-4 md:px-8 relative z-10">
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             RESULTADOS <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-700">COMPROVADOS</span>
@@ -72,22 +56,13 @@ export function Testimonials() {
               transition={{ delay: i * 0.2 }}
               className="relative bg-[#050505] border border-white/10 p-8 rounded-sm hover:border-white/20 hover:bg-white/5 transition-all duration-300 group"
             >
-              {/* Aspas Gigantes Decorativas */}
               <Quote className="absolute top-6 right-6 w-12 h-12 text-white/5 group-hover:text-red-900/20 transition-colors" />
-
-              {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(t.rating)].map((_, starIdx) => (
                   <Star key={starIdx} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                 ))}
               </div>
-
-              {/* Texto */}
-              <p className="text-gray-300 text-sm leading-relaxed italic mb-8 relative z-10">
-                "{t.quote}"
-              </p>
-
-              {/* Autor */}
+              <p className="text-gray-300 text-sm leading-relaxed italic mb-8 relative z-10">"{t.quote}"</p>
               <div className="mt-auto flex items-center gap-4 border-t border-white/5 pt-4">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center font-bold text-xs text-white border border-white/10">
                   {t.author.charAt(0)}

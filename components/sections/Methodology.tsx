@@ -1,13 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  BrainCircuit, 
-  FileText, 
-  GalleryVerticalEnd, 
-  Video, 
-  Film 
-} from 'lucide-react';
+import { BrainCircuit, FileText, GalleryVerticalEnd, Video, Film } from 'lucide-react';
 import CinematicText from '../ui/CinematicText';
 
 const methodologySteps = [
@@ -46,24 +40,17 @@ const methodologySteps = [
 export function Methodology() {
   return (
     <section className="relative bg-[#050505] text-white overflow-hidden border-t border-white/5 py-24 md:py-32">
-      {/* --- CINEMATIC BACKGROUND LAYERS (Idêntico ao Features) --- */}
-      
-      {/* 1. Faixas Laterais (35mm) */}
+      {/* Background Layers */}
       <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-r border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-l border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
-      
-      {/* Background Noise */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay"></div>
 
-      <div className="container mx-auto px-6">
+      {/* CONTAINER PADRONIZADO (max-w-7xl) */}
+      <div className="container mx-auto max-w-7xl px-4 md:px-8">
         
         {/* Header Methodology */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -86,10 +73,8 @@ export function Methodology() {
             </p>
         </div>
 
-        {/* Vertical Timeline */}
+        {/* Vertical Timeline - Conteúdo Interno mantido em max-w-4xl para leitura */}
         <div className="relative max-w-4xl mx-auto">
-            
-            {/* Linha Central (Conector) */}
             <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white/10 to-transparent md:-translate-x-1/2 h-full z-0"></div>
 
             <div className="flex flex-col gap-12 md:gap-20 relative z-10">
@@ -104,8 +89,6 @@ export function Methodology() {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className={`flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} gap-8 md:gap-0 group`}
                         >
-                            
-                            {/* Conteúdo Texto */}
                             <div className={`flex-1 w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
                                 <span className="font-mono text-[10px] text-red-500 tracking-widest uppercase mb-2 block">
                                     {step.subtitle}
@@ -117,8 +100,6 @@ export function Methodology() {
                                     {step.description}
                                 </p>
                             </div>
-
-                            {/* Ícone Central (Node) */}
                             <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-14 h-14 flex items-center justify-center">
                                 <div className="relative w-12 h-12 bg-[#0a0a0a] border border-white/20 rounded-full flex items-center justify-center group-hover:border-red-500 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.4)] transition-all duration-300 z-10">
                                     <div className="text-gray-300 group-hover:text-white transition-colors">
@@ -126,8 +107,6 @@ export function Methodology() {
                                     </div>
                                 </div>
                             </div>
-                            
-                            {/* Espaço Vazio para balancear o Grid no Desktop */}
                             <div className="hidden md:block md:w-1/2"></div>
                         </motion.div>
                     );

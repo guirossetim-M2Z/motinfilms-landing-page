@@ -1,14 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Monitor, 
-  Smartphone, 
-  Clock, 
-  Layers, 
-  CheckCircle2, 
-  Scan
-} from 'lucide-react';
+import { Monitor, Smartphone, Clock, Layers, CheckCircle2, Scan } from 'lucide-react';
 import CinematicText from '../ui/CinematicText';
 
 export function BonusFormats() {
@@ -34,33 +27,24 @@ export function BonusFormats() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#050505] text-white overflow-hidden border-t border-white/5">
+    <section className="relative py-20 md:py-32 bg-[#050505] text-white overflow-hidden border-t border-white/5">
       
-      {/* --- CINEMATIC BACKGROUND LAYERS (Idêntico ao Features) --- */}
-      
-      {/* 1. Faixas Laterais (35mm) */}
+      {/* Background Layers */}
       <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-r border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-l border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-           {[...Array(30)].map((_, i) => (
-              <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-           ))}
+           {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
-
-      {/* --- BACKGROUND TÁTICO --- */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-red-900/10 via-[#050505] to-[#050505] pointer-events-none"></div>
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay"></div>
-      
-      {/* Grid de Fundo */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* CONTAINER PADRONIZADO */}
+      <div className="container mx-auto max-w-7xl px-4 md:px-8 relative z-10">
         
-        {/* --- HEADER --- */}
-        <div className="flex flex-col md:flex-row gap-12 mb-20 items-start">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row gap-12 mb-16 md:mb-20 items-start">
             <div className="flex-1">
                 <motion.div 
                     initial={{ opacity: 0, x: -20 }}
@@ -104,11 +88,11 @@ export function BonusFormats() {
                 transition={{ delay: 0.2 }}
                 className="flex-1 text-gray-400 leading-relaxed text-sm md:text-base border-l border-white/10 pl-6 pt-2"
             >
-                A Motin Films é a única produtora de vídeos a fornecer versões compactas dos filmes principais contratados sem custos adicionais, atendendo perfeitamente todas as suas necessidades de comunicação multiplataforma.
+                A Motin Films é a única produtora de vídeos a fornecer versões compactas dos filmes principais contratados sem custos adicionais.
             </motion.p>
         </div>
 
-        {/* --- CARDS DE FORMATOS --- */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {formats.map((item, idx) => (
                 <motion.div
@@ -119,12 +103,10 @@ export function BonusFormats() {
                     transition={{ delay: idx * 0.2 }}
                     className="group relative bg-[#0a0a0a] border border-white/10 hover:border-red-500/40 p-1 transition-all duration-500 rounded-sm overflow-hidden"
                 >
-                    {/* Background Glow on Hover */}
+                    {/* Background Glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                     <div className="relative bg-[#050505] p-8 h-full flex flex-col">
-                        
-                        {/* Top Badge */}
                         <div className="flex justify-between items-start mb-6">
                             <div className="p-3 bg-white/5 rounded-full text-gray-300 group-hover:text-red-500 group-hover:bg-red-500/10 transition-colors">
                                 {item.icon}
@@ -134,7 +116,6 @@ export function BonusFormats() {
                             </span>
                         </div>
 
-                        {/* Title & Desc */}
                         <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-50 transition-colors">
                             {item.title}
                         </h3>
@@ -146,20 +127,13 @@ export function BonusFormats() {
                             {item.description}
                         </p>
 
-                        {/* Tech Specs Grid */}
                         <div className="grid grid-cols-2 gap-4">
-                            
-                            {/* Duração */}
                             <div className="flex flex-col gap-1">
                                 <span className="flex items-center gap-2 text-[10px] text-gray-500 font-mono uppercase tracking-wider">
                                     <Clock className="w-3 h-3" /> Duration
                                 </span>
-                                <span className="text-white font-bold text-sm">
-                                    {item.duration}
-                                </span>
+                                <span className="text-white font-bold text-sm">{item.duration}</span>
                             </div>
-
-                            {/* Formatos */}
                             <div className="flex flex-col gap-1">
                                 <span className="flex items-center gap-2 text-[10px] text-gray-500 font-mono uppercase tracking-wider">
                                     <Layers className="w-3 h-3" /> Formats
@@ -172,13 +146,11 @@ export function BonusFormats() {
                                     ))}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </motion.div>
             ))}
         </div>
-
       </div>
     </section>
   );

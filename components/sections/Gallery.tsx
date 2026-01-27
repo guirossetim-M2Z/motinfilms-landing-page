@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { Play, Maximize2, Film, Clapperboard, Aperture, X } from 'lucide-react';
+import { Play, Maximize2, Film, Clapperboard, X } from 'lucide-react';
 import CinematicText from '../ui/CinematicText';
 
 interface Project {
@@ -92,25 +92,20 @@ export function Gallery() {
   };
 
   return (
-    <section className="relative py-16 md:py-24 px-4 bg-[#020202] text-white overflow-hidden border-t border-white/5">
+    <section className="relative py-20 md:py-32 px-4 bg-[#020202] text-white overflow-hidden border-t border-white/5">
 
       {/* --- BACKGROUND DECORATIVO --- */}
-      {/* Faixas Laterais: HIDDEN no Mobile, FLEX no Desktop (md) */}
       <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-r border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-        ))}
+        {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-12 bg-[#0a0a0a] border-l border-white/10 flex-col justify-between py-2 z-10 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>
-        ))}
+        {[...Array(30)].map((_, i) => <div key={i} className="w-4 h-6 mx-auto bg-black rounded-sm opacity-50"></div>)}
       </div>
-
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/5 via-transparent to-transparent blur-3xl pointer-events-none"></div>
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
 
-      <div className="container mx-auto max-w-7xl relative z-20">
+      {/* CONTAINER PADRONIZADO (max-w-7xl) */}
+      <div className="container mx-auto max-w-7xl px-4 md:px-8 relative z-20">
 
         {/* --- HEADER --- */}
         <div className="text-center mb-12 md:mb-20">
@@ -163,7 +158,7 @@ export function Gallery() {
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
 
-                {/* Overlay UI - Ajustado para ser menos intrusivo no mobile */}
+                {/* Overlay UI */}
                 <div className="absolute inset-0 z-10 flex flex-col justify-between p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-transparent to-black/40">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm px-2 py-1 rounded border border-white/10">
@@ -201,7 +196,6 @@ export function Gallery() {
                   </p>
                 </div>
 
-                {/* Ícone Play Visível no Mobile para indicar clique */}
                 <div className="pt-2 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-300">
                   <Clapperboard className="w-5 h-5 text-gray-500 group-hover:text-accent" />
                 </div>
@@ -240,7 +234,6 @@ export function Gallery() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              // Modal em Full Screen no Mobile, Max-Width no Desktop
               className="w-full h-full md:h-auto md:max-w-5xl bg-[#0a0a0a] border border-white/10 overflow-y-auto md:overflow-hidden relative shadow-2xl flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
@@ -251,7 +244,6 @@ export function Gallery() {
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Video Area */}
               <div className="w-full shrink-0 aspect-video bg-black sticky top-0 md:relative z-40">
                 <iframe
                   width="100%"
@@ -264,7 +256,6 @@ export function Gallery() {
                 ></iframe>
               </div>
 
-              {/* Text Area */}
               <div className="p-6 md:p-8 border-t border-white/10 bg-[#0f0f0f] grow">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-between items-start">
                   <div className="flex-1 space-y-4">
