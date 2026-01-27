@@ -152,6 +152,7 @@ export function Features() {
                 <span className="text-2xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white block md:inline mb-2 md:mb-0">
                     COMO A MOTIN
                 </span>
+                <br />
                 <span className="block md:inline md:ml-4 text-2xl md:text-5xl lg:text-6xl">
                     <CinematicText text="TRANSFORMA O CAOS" speed="fast" />
                 </span>

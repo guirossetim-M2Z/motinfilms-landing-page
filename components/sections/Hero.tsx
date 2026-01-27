@@ -19,16 +19,6 @@ export function Hero() {
 
   return (
     <>
-      <style>{`
-        .stronger-title {
-          line-height: 1.1;
-        }
-        @media (min-width: 768px) {
-           .stronger-title {
-              line-height: 90px;
-           }
-        }
-      `}</style>
       <motion.section
         className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden bg-primary"
         initial="hidden"
@@ -55,7 +45,7 @@ export function Hero() {
         <div className="relative z-10 container mx-auto max-w-7xl px-4 md:px-8 flex flex-col items-center">
             <div className="max-w-4xl space-y-8">
               <Image width="200" height="200" src="/images/motin-logo-white.webp" alt="Filmes que comunicam" className="mx-auto w-32 md:w-52" />
-              <motion.h1 className="text-5xl md:text-8xl font-extrabold text-text drop-shadow-lg stronger-title">
+              <motion.h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-text drop-shadow-lg stronger-title">
                 Motive sua audiência.
                 <br /> Eleve sua <CinematicText text="marca " speed="fast" />
               </motion.h1>
