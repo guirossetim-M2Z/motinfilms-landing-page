@@ -62,7 +62,7 @@ export function CallToAction() {
           transition={{ delay: 0.2 }}
           className="text-base md:text-xl mb-8 md:mb-12 max-w-2xl mx-auto text-gray-400 font-light"
         >
-          Receba um <span className="text-white font-semibold border-b border-white/30">Diagnóstico de Posicionamento</span> gratuito.
+          Receba uma <span className="text-white font-semibold border-b border-white/30">Análise</span> gratuita.
         </motion.p>
 
         <div className="relative max-w-xl mx-auto mb-8 md:mb-12">
@@ -113,7 +113,7 @@ export function CallToAction() {
             onClick={triggerRdStationPopup}
           >
             <Clapperboard className="w-4 h-4 md:w-5 md:h-5 mr-3 group-hover:animate-pulse" />
-            Solicitar Diagnóstico
+            Solicitar Análise
           </Button>
           <p className="mt-4 font-mono text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest opacity-60">
             Vagas limitadas para este mês

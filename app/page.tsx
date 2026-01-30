@@ -12,6 +12,7 @@ import { AncineLicense } from '@/components/sections/AncineLicense';
 import { BonusFormats } from '@/components/sections/BonusFormats';
 import { Methodology } from '@/components/sections/Methodology';
 import { Testimonials } from '@/components/sections/Testimonials';
+import { NationalCoverageV2 } from '@/components/sections/national-coverage-v2/NationalCoverageV2';
 
 export default function HomePage() {
   return (
@@ -50,7 +51,7 @@ export default function HomePage() {
       </TrackView>
 
 
-      <NationalCoverage />
+      <NationalCoverageV2 />
 
 
       <TrackView

@@ -21,17 +21,6 @@ export function AuthorityClub() {
             JUNTE-SE ÀS MARCAS QUE <span className="text-red-500">NÃO ACEITAM O "BÁSICO"</span>
         </h2>
 
-        {/* Logo Grid (Simples e Elegante) */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-             {/* Substitua por imagens reais. Usando texto como placeholder caso imagem falhe */}
-             {logos.map((src, i) => (
-                 <div key={i} className="h-12 w-32 relative flex items-center justify-center">
-                    {/* Placeholder visual se não tiver a imagem */}
-                    <div className="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 uppercase">{src.split('/')[3]?.replace('-logo.png','')}</div>
-                 </div>
-             ))}
-        </div>
-
         {/* Depoimento Featured */}
         <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}

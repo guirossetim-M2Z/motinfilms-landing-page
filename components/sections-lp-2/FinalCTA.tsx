@@ -38,9 +38,6 @@ export function FinalCTA() {
 
             <div className="flex flex-col md:flex-row justify-center gap-8 text-gray-400 text-sm font-mono">
                 <div className="flex items-center gap-2 justify-center">
-                    <Phone className="w-4 h-4" /> +55 41 9142-5126 (WhatsApp)
-                </div>
-                <div className="flex items-center gap-2 justify-center">
                     <MapPin className="w-4 h-4" /> Curitiba - PR (Atendendo todo o Brasil)
                 </div>
             </div>

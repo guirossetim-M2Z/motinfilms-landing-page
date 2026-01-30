@@ -17,15 +17,7 @@ export function EliteSocialProof() {
             QUEM LIDERA O MERCADO JÁ ENTENDEU. <br />
             <span className="text-gray-500">E VOCÊ?</span>
         </h2>
-
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-16 opacity-60">
-             {/* LOGOS PLACEHOLDER - Substitua pelos componentes de Imagem */}
-             <span className="text-xl font-bold text-gray-400">MERCEDES-BENZ</span>
-             <span className="text-xl font-bold text-gray-400">SONY</span>
-             <span className="text-xl font-bold text-gray-400">WARNER BROS</span>
-             <span className="text-xl font-bold text-gray-400">UNIMED</span>
-        </div>
-
+        
         <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

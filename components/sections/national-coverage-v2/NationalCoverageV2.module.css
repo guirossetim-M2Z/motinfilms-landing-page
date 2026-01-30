@@ -1,0 +1,35 @@
+/* Container principal do mapa para garantir isolamento */
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo base dos estados (Paths) */
+.statePath {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: crosshair; /* Cursor tático */
+  pointer-events: all; /* Garante que o hover funcione */
+}
+
+/* Efeito Hover Cinematográfico no Estado */
+.statePath:hover {
+  fill: #1f1f1f;       /* Clareia levemente o fundo */
+  stroke: #ef4444;     /* Borda fica vermelha (neon) */
+  stroke-width: 1.5px; /* Borda fica mais grossa */
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4)); /* Glow vermelho */
+  z-index: 10;         /* Traz pra frente (conceitual no SVG) */
+}
+
+/* Animação extra para o grid de fundo (opcional) */
+.gridBackground {
+  animation: scanGrid 20s linear infinite;
+}
+
+@keyframes scanGrid {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}

@@ -13,6 +13,7 @@ import { NationalCoverage } from '@/components/sections/NationalCoverage';
 import { Gallery } from '@/components/sections/Gallery'; // Importado
 import { SocialProof } from '@/components/sections/SocialProof'; // Importado
 import { TrackView } from 'ninetwo-user-tracking';
+import { NationalCoverageV2 } from '@/components/sections/national-coverage-v2/NationalCoverageV2';
 
 export default function LandingPage2() {
   return (
@@ -47,7 +48,7 @@ export default function LandingPage2() {
         <OurFormats />
       </TrackView>
       
-      <NationalCoverage />
+      <NationalCoverageV2 />
 
       {/* Gallery Global: Prova visual antes da metodologia */}
       <TrackView eventName="lp2_gallery_view" category="Gallery" label="Portfolio LP2">

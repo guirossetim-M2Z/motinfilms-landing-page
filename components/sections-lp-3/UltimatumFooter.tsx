@@ -46,9 +46,6 @@ export function UltimatumFooter() {
 
             <div className="flex flex-col md:flex-row justify-center gap-8 text-gray-400 text-sm font-mono border-t border-white/10 pt-8 w-full">
                 <div className="flex items-center gap-2 justify-center hover:text-white transition-colors">
-                    <Phone className="w-4 h-4" /> Fale direto com a estratégia: +55 41 9142-5126
-                </div>
-                <div className="flex items-center gap-2 justify-center hover:text-white transition-colors">
                     <MapPin className="w-4 h-4" /> Atuação Nacional: Onde houver negócios, nós vamos.
                 </div>
             </div>
