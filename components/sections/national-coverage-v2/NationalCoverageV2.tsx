@@ -151,7 +151,6 @@ export function NationalCoverageV2() {
                         strokeLinecap="round"
                         filter="url(#neon-glow)"
                         custom={getRegionDelay(state.region)}
-                        variants={regionVariants}
                         initial="hidden"
                         animate="visible"
                     />
