@@ -1,27 +1,30 @@
-import { LandingPage2Template } from '@/components/templates/LandingPage2';
+import { LandingPage1Template } from '@/components/templates/LandingPage1';
 import { notFound } from 'next/navigation';
 
-// Definição da tipagem correta para o Next.js atual
-interface PageProps {
+type PageProps = {
   params: Promise<{ slug: string }>;
-}
+};
 
-// Função para gerar metadados dinâmicos
-export async function generateMetadata({ params }: PageProps) {
-  // 1. Aguardamos a resolução da Promise params
-  const { slug } = await params;
+// Função auxiliar para limpar o slug e pegar um nome de cidade "bonito"
+function formatCityName(slug: string) {
+  // Remove termos comuns para limpar o nome
+  let cleanName = slug
+    .replace('produtora-audiovisual-', '')
+    .replace('produtora-', '')
+    .replace('audiovisual-', '');
 
-  // Verifica se o padrão da URL está correto
-  if (!slug || !slug.startsWith('produtora-audiovisual-')) {
-    return {};
-  }
-
-  // Extrai o nome da cidade e formata (ex: "sao-paulo" -> "São Paulo")
-  const citySlug = slug.replace('produtora-audiovisual-', '');
-  const cityName = citySlug
+  // Transforma "rio-de-janeiro" em "Rio De Janeiro"
+  return cleanName
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  if (!slug) return {};
+
+  const cityName = formatCityName(slug);
 
   return {
     title: `Produtora Audiovisual em ${cityName} | Motin Films`,
@@ -29,19 +32,16 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-// Componente da Página (Deve ser ASYNC agora)
-export default async function CityLandingPage({ params }: PageProps) {
-  // 2. Aguardamos a resolução da Promise params aqui também
+export default async function Lp2CityPage({ params }: PageProps) {
   const { slug } = await params;
 
-  // Lógica de Proteção:
-  // Se slug for undefined ou não começar com o prefixo, 404.
-  if (!slug || !slug.startsWith('produtora-audiovisual-')) {
+  if (!slug) {
     notFound();
   }
 
-  // Extrai a cidade para passar ao template
-  const city = slug.replace('produtora-audiovisual-', '');
+  // AQUI ESTAVA O BLOQUEIO: Removi o "if (!startsWith...)"
+  // Agora ele aceita qualquer URL e tenta extrair a cidade dela.
+  const cityName = formatCityName(slug);
 
-  return <LandingPage2Template city={city} />;
+  return <LandingPage1Template city={cityName} />;
 }
