@@ -83,7 +83,7 @@ As cores e fontes globais estão definidas para fácil alteração.
 .
 ├── app/
 │   ├── layout.tsx      # Configuração global (Fontes, CSS, Providers)
-│   ├── page.tsx        # Página principal (Orquestrador de Seções)
+│   ├── page.tsx        # Página principal (Orquestrador de Seções) 
 │   ├── providers.tsx   # Wrapper do Tracking (Client Component)
 │   └── globals.css     # CSS Global e Utilitários Tailwind
 ├── components/
