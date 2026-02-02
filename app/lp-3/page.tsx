@@ -11,6 +11,7 @@ import { Gallery } from '@/components/sections/Gallery'; // Importado
 import { SocialProof } from '@/components/sections/SocialProof'; // Importado
 import { AncineLicense } from '@/components/sections/AncineLicense'; // Adicionado para reforço de autoridade
 import { TrackView } from 'ninetwo-user-tracking';
+import { NationalCoverageV2 } from '@/components/sections/national-coverage-v2/NationalCoverageV2';
 
 export default function LandingPage3() {
   return (
@@ -55,6 +56,8 @@ export default function LandingPage3() {
       <TrackView eventName="lp3_method_view" category="Content" label="Effortless Method LP3">
         <EffortlessMethod />
       </TrackView>
+
+      <NationalCoverageV2 />
 
       <TrackView eventName="lp3_cta_view" category="Conversion" label="Ultimatum CTA LP3">
         <UltimatumFooter />
