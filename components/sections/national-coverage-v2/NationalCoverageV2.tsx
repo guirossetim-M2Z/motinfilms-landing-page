@@ -108,7 +108,7 @@ export function NationalCoverageV2() {
           >
             <svg 
                 viewBox={mapViewBox}
-                className="w-full h-full max-w-[900px] drop-shadow-2xl"
+                className={`w-full h-full max-w-[900px] drop-shadow-2xl  ${styles.mapSvg}`}
                 style={{ overflow: 'visible' }}
             >
                 <defs>

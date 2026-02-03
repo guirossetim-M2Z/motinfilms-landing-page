@@ -8,6 +8,12 @@
   justify-content: center;
 }
 
+.mapSvg{
+  width: 130%;
+  margin-top: 60px;
+  margin-left: 70px;
+}
+
 /* Estilo base dos estados (Paths) */
 .statePath {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
