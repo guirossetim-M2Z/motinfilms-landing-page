@@ -56,6 +56,6 @@ export const config = {
      * - images (sua pasta de imagens publicas)
      * - svg (sua pasta de svgs publicos)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|images|svg).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|images|svg|videos).*)',
   ],
 }

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { triggerRdStationPopup } from '@/utils/RDStation';
 
 export function Hero() {
-  const videoUrl = "https://motinfilms.com.br/Showreel.mp4";
+  const videoUrl = "/videos/Showreel.mp4";
 
   const containerVariants = {
     hidden: { opacity: 0 },

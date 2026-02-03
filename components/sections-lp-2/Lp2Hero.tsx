@@ -8,7 +8,7 @@ import { triggerRdStationPopup } from '@/utils/RDStation';
 import { CheckCircle2, Clapperboard, Globe } from 'lucide-react';
 
 export function Lp2Hero() {
-  const videoUrl = "https://motinfilms.com.br/Showreel.mp4"; 
+  const videoUrl = "/videos/Showreel.mp4";
 
   // Removi "Certificação Ancine" daqui para tratá-lo como elemento VIP visual
   const sideBenefits = [
