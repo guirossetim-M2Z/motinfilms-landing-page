@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image'; // Importação adicionada
 import { Play, Maximize2, Film, Clapperboard, X } from 'lucide-react';
 import CinematicText from '../ui/CinematicText';
 
@@ -148,9 +149,13 @@ export function Gallery() {
               {/* Moldura do "Monitor" */}
               <div className="relative overflow-hidden aspect-video bg-[#0f0f0f] border border-white/10 shadow-lg group-hover:border-accent/50 transition-colors duration-500">
                 <div className="absolute inset-0 z-0">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={606}
+                    height={341}
+                    // 'sizes' ajuda o navegador a baixar a imagem correta para cada breakpoint
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 
                                filter grayscale brightness-[0.8] contrast-[1.1] 
                                group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
