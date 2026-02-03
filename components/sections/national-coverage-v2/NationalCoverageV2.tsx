@@ -7,7 +7,7 @@ import { mapData, mapViewBox } from '@/data/brazilMapData';
 // Importação do CSS Module
 import styles from './NationalCoverageV2.module.css';
 
-// Configuração de Delays (Escalonados para evitar que todos acendam juntos)
+// Configuração de Delays
 const getRegionDelay = (region: string) => {
     switch(region) {
         case 'NORTE': return 0;
@@ -19,7 +19,7 @@ const getRegionDelay = (region: string) => {
     }
 };
 
-// TIPAGEM EXPLÍCITA DE VARIANTS
+// TIPAGEM EXPLÍCITA DE VARIANTS (Corrige erro de TypeScript)
 const regionVariants: Variants = {
   hidden: { pathLength: 0, opacity: 0.1 },
   visible: (customDelay: number) => ({
@@ -106,9 +106,10 @@ export function NationalCoverageV2() {
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
           >
+            {/* CORREÇÃO DO SVG: Removido lixo de código na tag viewbox */}
             <svg 
-                viewBox={mapViewBox}
-                className={`w-full h-full max-w-[900px] drop-shadow-2xl  ${styles.mapSvg}`}
+                viewBox={mapViewBox || "0 0 1000 912"}
+                className="w-full h-full max-w-[900px] drop-shadow-2xl"
                 style={{ overflow: 'visible' }}
             >
                 <defs>
@@ -121,26 +122,25 @@ export function NationalCoverageV2() {
                     </filter>
                     
                     <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        {/* ALTERADO: Tons de cinza mais claros para maior visibilidade */}
                         <stop offset="0%" stopColor="#2a2a2a" /> 
                         <stop offset="100%" stopColor="#1a1a1a" /> 
                     </linearGradient>
                 </defs>
 
-                {/* CAMADA 1: BASE (Mais clara e visível) */}
-                {mapData.map((state) => (
+                {/* CAMADA 1: BASE */}
+                {mapData && mapData.map((state) => (
                     <path 
                         key={`base-${state.id}`}
                         d={state.d} 
                         fill="url(#mapGradient)" 
-                        stroke="#404040" // Borda um pouco mais clara para definir os estados
+                        stroke="#404040"
                         strokeWidth="0.8" 
                         className={styles.statePath} 
                     />
                 ))}
 
                 {/* CAMADA 2: NEON */}
-                {mapData.map((state) => (
+                {mapData && mapData.map((state) => (
                     <motion.path 
                         key={`neon-${state.id}`}
                         d={state.d} 

@@ -14,12 +14,14 @@ export const metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children, 
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
+      <link rel="preconnect" href="https://images.unsplash.com" />
+      <link rel="preconnect" href="https://popups.rdstation.com.br" />
       <body className={`${inter.variable} font-sans`}>
         <Providers>
           {children}
