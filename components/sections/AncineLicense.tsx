@@ -2,27 +2,36 @@
 
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
+import Image from 'next/image'; // 1. Importação do Next Image
 
 export function AncineLicense() {
   return (
     <section className="relative h-[200px] md:h-[240px] flex items-center justify-center overflow-hidden border-y border-white/10 group bg-[#050505]">
       
-      {/* --- BACKGROUND --- */}
-      <div className="absolute inset-0 z-0">
-        <motion.img 
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 10, ease: "linear" }}
+      {/* --- BACKGROUND OTIMIZADO --- */}
+      {/* 2. Wrapper motion.div para fazer a animação de Scale */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1.1 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 10, ease: "linear" }}
+      >
+        <Image 
             src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2942&auto=format&fit=crop" 
             alt="Cinema Background"
-            className="w-full h-full object-cover opacity-30 filter grayscale contrast-125"
+            fill // Substitui w-full h-full
+            className="object-cover opacity-30 filter grayscale contrast-125"
+            // sizes="100vw" garante que o Next baixe a versão correta (pequena no mobile, grande no desktop)
+            sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent mix-blend-screen pointer-events-none"></div>
-      </div>
+      </motion.div>
+
+      {/* Overlays de Gradiente (z-0 para ficar junto com o fundo, mas acima da imagem) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60 z-0 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent mix-blend-screen pointer-events-none z-0"></div>
 
       {/* --- SCANNER EFFECT --- */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 z-0">
          <motion.div 
             animate={{ top: ['-10%', '110%'] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -65,11 +74,16 @@ export function AncineLicense() {
             className="relative p-4 rounded-lg"
         >
             <div className="absolute inset-0 bg-white/5 blur-xl rounded-full pointer-events-none"></div>
-            <img 
-                src="/images/ancine-logo-1.png" 
-                alt="Logo Ancine" 
-                className="h-14 md:h-20 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
-            />
+            {/* Também otimizei o logo da Ancine */}
+            <div className="relative h-14 md:h-20 w-32 md:w-48">
+              <Image 
+                  src="/images/ancine-logo-1.png" 
+                  alt="Logo Ancine" 
+                  fill
+                  className="object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                  sizes="(max-width: 768px) 150px, 200px"
+              />
+            </div>
         </motion.div>
 
       </div>
