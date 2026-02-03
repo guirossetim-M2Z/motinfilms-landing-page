@@ -21,10 +21,13 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <TrackingProvider gtmId="GTM-MMXG7WK" debug>
+    // <TrackingProvider gtmId="GTM-MMXG7WK" debug>
+    <div>
+
       {children}
 
       <RDStationScript />
-    </TrackingProvider>
+    </div>
+    // {/* </TrackingProvider> */ }
   );
 }
